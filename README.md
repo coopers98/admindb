@@ -23,5 +23,5 @@ their own Partner data, as well as the Articles that are related to any Partners
 users will have the ability to view and list their related data, but will have no CRUD permissions for any entities.
  
 `Non-partner, Non-admin Users` - These users will be able to login and access to the Nova panel, but will not be presented
-with any content.  
+with any content.   
 
