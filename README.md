@@ -7,9 +7,12 @@ Admin/Nova panel accessed at the /nova path (such as localhost/nova)
 ### Entities
 
 `Users` - Standard email/password users.  See the UsersTableSeeder for login credentials for various users and user levels
+
 `Articles` - A list of Articles that are compromised of only Titles
+
 `Partners` - A list of 'partners'.  Partners can be related to Articles in a Many to Many Relationship.  Additionally, 
 Users can be related to Partners, also by a Many to Many Relationship.
+
 
 ### User Access Levels
 
