@@ -14,7 +14,7 @@ Admin/Nova panel accessed at the /nova path (such as localhost/nova)
 
 The standard Laravel setup steps are required.  Create a copy of the .env.example file with proper database, keys, urls and other settings.
 
-Run `composer install`
+Run `composer install` and `npm i`
 
 ###  API
 
