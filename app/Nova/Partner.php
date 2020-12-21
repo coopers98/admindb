@@ -103,7 +103,8 @@ class Partner extends Resource
     public static function indexQuery(NovaRequest $request, $query)
     {
         $query = $query->select('partners.*')
-                       ->join('partner_user as pu', 'partners.id', 'pu.partner_id');
+                       ->join('partner_user as pu', 'partners.id', 'pu.partner_id')
+                       ->distinct();
 
         if (!$request->user()->isAdmin) {
             $query = $query->where('user_id', $request->user()->id);

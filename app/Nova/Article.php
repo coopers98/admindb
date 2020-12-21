@@ -101,7 +101,8 @@ class Article extends Resource
     {
         $query = $query->select('articles.*')
                        ->join('article_partner as ap1', 'articles.id', 'ap1.article_id')
-                       ->join('partner_user as pu1', 'pu1.partner_id', 'ap1.partner_id');
+                       ->join('partner_user as pu1', 'pu1.partner_id', 'ap1.partner_id')
+                       ->distinct();
 
 
         if (!$request->user()->isAdmin) {

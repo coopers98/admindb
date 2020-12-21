@@ -18,7 +18,7 @@ class ArticlePolicy
      */
     public function viewAny(User $user)
     {
-        return $user->isAdmin || $user->partners;
+        return $user->isAdmin || $user->partners()->exists();
     }
 
     /**
