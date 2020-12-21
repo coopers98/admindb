@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\InteractionController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-Route::resource('profiles', ProfileController::class);
-Route::resource('interactions', InteractionController::class);

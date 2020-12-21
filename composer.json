@@ -15,7 +15,6 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
         "laravel/framework": "^7.29",
-        "laravel/nova": "~3.0",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.3"
     },
@@ -63,47 +62,5 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
-    },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://nova.laravel.com"
-        },
-        {
-            "type": "path",
-            "url": "./nova-components/Home"
-        },
-        {
-            "type": "path",
-            "url": "./nova-components/Home"
-        },
-        {
-            "type": "path",
-            "url": "./nova-components/Home"
-        },
-        {
-            "type": "path",
-            "url": "./nova-components/Home"
-        },
-        {
-            "type": "path",
-            "url": "./nova-components/Home"
-        },
-        {
-            "type": "path",
-            "url": "./nova-components/Home"
-        },
-        {
-            "type": "path",
-            "url": "./nova-components/Home"
-        },
-        {
-            "type": "path",
-            "url": "./nova-components/Home"
-        },
-        {
-            "type": "path",
-            "url": "./nova-components/Home"
-        }
-    ]
+    }
 }

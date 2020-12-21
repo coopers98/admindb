@@ -6,25 +6,47 @@ Admin/Nova panel accessed at the /nova path (such as localhost/nova)
 
 ### Entities
 
-`Users` - Standard email/password users.  See the UsersTableSeeder for login credentials for various users and user levels
+`Profiles` -  Tracks profile data representing a person contacted through various means of outreach
 
-`Articles` - A list of Articles that are compromised of only Titles
+`Interactions` - An event in which a profile has been contacted by one or more means
 
-`Partners` - A list of 'partners'.  Partners can be related to Articles in a Many to Many Relationship.  Additionally, 
-Users can be related to Partners, also by a Many to Many Relationship.
+### Setup
+
+The standard Laravel setup steps are required.  Create a copy of the .env.example file with proper database, keys, urls and other settings.
+
+Run `composer install`
+
+###  API
+
+The various `profiles` and `interactions` are API only.  Existing endpoints:
+
+|VERB|URI|Description|Includes Available|
+|----|---|-----|----|
+GET | `api/profiles` | return a paginated index of `profiles` | `interactions`
+GET | `api/profiles/{id}` | return a single `profile` (if it exists) | `interactions`
+POST | `api/profiles` | store a new `profile`
+PUT/PATCH | `api/profiles/{id}` | update an existing `profile`
+DELETE | `api/profiles/{id}` | delete an existing `profile`
+GET | `api/interactions` | return a paginated index of `interactions`
+GET | `api/interactions/{id}` | return a single `interaction`
+
+For the GET `api/profiles` and GET `api/profiles/{id}` endpoints, an optional URL parameter `include` may be appended
+which will include nested relations when applicable (only `interactions` at this point)
+
+e.g. `api/profiles/1?include=interactions` will cause the related `interactions` to be included with the response as a nested `interactions` object
+
+While I manually performed this for this example, I have used https://fractal.thephpleague.com/ to build powerful
+response transformations and includes in the past.
+
+### Tests
+
+There are a few tests included with this sample.  As we all know, building exhaustive test cases can be quite time consuming
+so I only created a few as early examples.
+
+Tests can be found in the `/tests/Unit` folder and can be run with`php artisan test`
 
 
-### User Access Levels
+### Disclaimer
 
-In the Nova backend, there are basically 3 levels of access.
-
-`Admins` - Currently an `admin` is set by a flag on the User entity.  Admins have full access and CRUD capabilities in the backend
-to all entities.
-
-`Partner Affiliated Users` -  A non-Admin user who is affiliated with an existing Partner.  These users will be able to see
-their own Partner data, as well as the Articles that are related to any Partners that the user is affiliated with.  These
-users will have the ability to view and list their related data, but will have no CRUD permissions for any entities.
- 
-`Non-partner, Non-admin Users` - These users will be able to login and access to the Nova panel, but will not be presented
-with any content.   
-
+I built this in my testing application which has some pre-existing Partners/Articles/Users on top of a Laravel Nova install
+as I was testing out the new Nova and other features.

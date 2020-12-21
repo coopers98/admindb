@@ -86,7 +86,7 @@ class InteractionTest extends TestCase
              ->assertJsonPath('data.profile_id', $profile->id);
     }
 
-    /** @test */
+    //  Removing the following 2 as requirements did not state index needs
     public function get_index_should_return_empty_when_none_available()
     {
         $this->get(route('interactions.index'))
@@ -94,7 +94,6 @@ class InteractionTest extends TestCase
 
     }
 
-    /** @test */
     public function get_index_should_return_list_when_available()
     {
         $fakedEmail = $this->faker->email();

@@ -20,5 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('profiles', ProfileController::class);
-Route::apiResource('interactions', InteractionController::class);
+Route::apiResource('profiles', ProfileController::class)->except(['create', 'edit']);
+Route::apiResource('interactions', InteractionController::class)->only(['show', 'store']);
